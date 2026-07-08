@@ -1,0 +1,22 @@
+{
+  "name": "gamer-registry",
+  "version": "1.0.0",
+  "description": "Sistema simples CRUD para ensino de testes de Sistemas.",
+  "license": "ISC",
+  "author": "Professor de Testes de Sistemas",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "pg": "^8.18.0"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
+}

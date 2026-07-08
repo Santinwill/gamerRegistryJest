@@ -1,0 +1,6 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (senhas e chaves de API)
+.env
+package-lock.json
