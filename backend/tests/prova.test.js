@@ -53,9 +53,9 @@ test("Q6. POST /api/gamers deve bloquear emails duplicados", async () => {
   const emailAlvo = `email.unico-${Date.now()}@email.com`; 
   
   const payload = {
-    nickname: "Jogador Duplicado",
-    email: emailAlvo
-  };
+                    nickname: "Jogador Duplicado",
+                    email: emailAlvo
+                  };
   
   await request(app).post("/api/gamers").send(payload);
 
@@ -78,10 +78,12 @@ test("Q7. DELETE /api/gamers/:id deve deletar e retornar status 204", async () =
 });
 
 test("Q8. Após DELETE, gamer não deve aparecer na listagem geral", async () => {
-  const novoGamer = await request(app).post("/api/gamers").send({
-    nickname: "Fantasma",
-    email: `fantasma-${Date.now()}@email.com`
-  });
+  const novoGamer = await request(app)
+                            .post("/api/gamers").
+                            send({
+                                nickname: "Fantasma",
+                                email: `fantasma-${Date.now()}@email.com`
+                            });
   const id = novoGamer.body.id;
 
   await request(app).delete(`/api/gamers/${id}`);
@@ -93,7 +95,10 @@ test("Q8. Após DELETE, gamer não deve aparecer na listagem geral", async () =>
 });
 
 test("Q9. Fluxo E2E: Criar, Checar Existência, Deletar e Checar Ausência", async () => {
-  const payload = { nickname: "E2ETester", email: `e2e-${Date.now()}@email.com` };
+  const payload = { 
+                    nickname: "E2ETester", 
+                    email: `e2e-${Date.now()}@email.com` 
+                  };
   
   const postRes = await request(app).post("/api/gamers").send(payload);
   expect(postRes.statusCode).toBe(200);
